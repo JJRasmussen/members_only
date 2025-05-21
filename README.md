@@ -1,6 +1,4 @@
-![image](https://github.com/user-attachments/assets/afc1c3b9-3852-4b39-99f0-40a31d7222c2)# Members Only
-The "Members Only" project from The Odin Project
-
+# The "Members Only" project from The Odin Project
 ## Project description
 An open message board where with anonymized messages.
 To create a message the user needs to login.
