@@ -1,14 +1,12 @@
 const db = require('../db/queries');
+const { format } = require('date-fns')
 
 async function createNewUser(req, res, next){
     const { username, password } = req.body
+    const creationTime = format(new Date(), "dd/MM/yyyy");
     try {
-        const succesfullAddition = await db.addNewUserToDatabase(username, password);
-        if (successfullAddition){
-            res.redirect('/');
-        } else {
-            res.redirect('/sign-up')
-        }
+        await db.addNewUserToDatabase(username, password, creationTime);
+        res.redirect('/');
     } catch(err) {
         return next(err);
     }

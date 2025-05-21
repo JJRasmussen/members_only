@@ -27,4 +27,4 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 
-app.listen(3000, () => console.log(`app listening on port ${process.env.DATABASE_PORT}!`));
+app.listen(3000, () => console.log(`app listening on port ${3000}!`));
