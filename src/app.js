@@ -29,8 +29,6 @@ app.use(session({
     cookie: { maxAge: 30*24*60*60*1000 } //30 days
 }));
 
-
-
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRouter);
