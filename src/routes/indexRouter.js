@@ -13,6 +13,14 @@ indexRouter.post('/log-in',
         failureRedirect: '/'
     })
 );
+indexRouter.get('/log-out', (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.redirect('/');
+    })
+})
 
 indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form'));
 indexRouter.post('/sign-up', createNewUser);
