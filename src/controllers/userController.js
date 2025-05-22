@@ -1,16 +1,19 @@
 const db = require('../db/queries');
-const { format } = require('date-fns')
+const bcrypt = require('bcryptjs');
+const { format } = require('date-fns');
 
 async function createNewUser(req, res, next){
-    const { username, password } = req.body
     const creationTime = format(new Date(), "dd/MM/yyyy");
     try {
-        await db.addNewUserToDatabase(username, password, creationTime);
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        await db.addNewUserToDatabase(req.body.username, hashedPassword, creationTime);
         res.redirect('/');
     } catch(err) {
-        return next(err);
+        console.error(err);
+        next(err);
     }
 }
+
 
 module.exports = {
     createNewUser,
