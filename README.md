@@ -12,11 +12,12 @@ To view the author of other users messages the user needs to become a member.
 
 ## Database design:
 For the postgreSQL database I will need three tables.
-1. The users, with their information and password.
+1. The users, with their information and hashed password.
 2. The messages, their creation date and the associated user.
 3. The session table used by pg-connect-simple to keep track of sessions.
 
-![image](https://github.com/user-attachments/assets/baf64a09-371c-48f6-a5a2-f5af1f710db3)
+![image](https://github.com/user-attachments/assets/876f973b-94a1-4944-ac10-747e7ffaac32)
+
 
 
 _A link to the project description can be found here:_
