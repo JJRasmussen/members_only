@@ -11,10 +11,12 @@ To view the author of other users messages the user needs to become a member.
 - PostgreSQL as the database
 
 ## Database design:
-For the postgreSQL database I will need two tables.
+For the postgreSQL database I will need three tables.
 1. The users, with their information and password.
 2. The messages, their creation date and the associated user.
-![image](https://github.com/user-attachments/assets/83443ed6-71b3-4ebc-8111-ecafe54be2b9)
+3. The session table used by pg-connect-simple to keep track of sessions.
+![image](https://github.com/user-attachments/assets/baf64a09-371c-48f6-a5a2-f5af1f710db3)
+
 
 _A link to the project description can be found here:_
 https://www.theodinproject.com/lessons/node-path-nodejs-members-only
