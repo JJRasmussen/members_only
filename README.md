@@ -15,6 +15,7 @@ For the postgreSQL database I will need three tables.
 1. The users, with their information and password.
 2. The messages, their creation date and the associated user.
 3. The session table used by pg-connect-simple to keep track of sessions.
+
 ![image](https://github.com/user-attachments/assets/baf64a09-371c-48f6-a5a2-f5af1f710db3)
 
 
