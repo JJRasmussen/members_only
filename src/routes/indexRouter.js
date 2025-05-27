@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { validationResult } = require('express-validator');
-const { createNewUser } = require('../controllers/userController')
+const { createNewUser, giveMemberStatus, removeMemberStatus } = require('../controllers/userController')
 const { passport } = require('../passport/passport');
 const { isAuth, isMember, isAdmin } = require('./middleware/authrization');
 const { newUserSchema } = require('./middleware/validatorSchemas');
@@ -43,8 +43,16 @@ indexRouter.get('/log-out', (req, res, next) => {
 });
 
 //isUser routes
-indexRouter.get('/protected-route', isAuth, (req, res, next) => {
-    res.send('You made it to the route');
+indexRouter.get('/member-status', isAuth, (req, res, next) => {
+    res.render('member-status', { user: req.user });
+});
+indexRouter.post('/member-status/add', isAuth, (req, res, next) => {
+    giveMemberStatus(req, res, next);
+    res.redirect('/member-status')
+})
+indexRouter.post('/member-status/remove', isAuth, (req, res, next) => {
+    removeMemberStatus(req, res, next);
+    res.redirect('/member-status');
 });
 
 //isMember routes

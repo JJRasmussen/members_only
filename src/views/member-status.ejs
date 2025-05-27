@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Become Member</title>
+</head>
+<body>
+
+    <% if(user.is_member) { %>
+        <p>you're already a member</p>
+        <form action="/member-status/remove" method="POST">
+            <button type="submit">Remove your membership</button>
+        </form>
+        
+    <% } else { %>
+        <p>you're not a member</p>
+        <form action="/member-status/add" method="POST">
+            <label for="membershipPassword">Membership Password</label>
+            <input type="text" name="membershipPassword" id = membershipPassword>
+            <button type="submit">Become a member</button>
+        </form>
+    <% } %>
+    
+</body>
+</html>
