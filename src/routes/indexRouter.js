@@ -1,7 +1,6 @@
 const { Router } = require('express');
-const { body, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const { createNewUser } = require('../controllers/userController')
-const { getUserFromUsername } = require('../db/queries');
 const { passport } = require('../passport/passport');
 const { isAuth, isMember, isAdmin } = require('./middleware/authrization');
 const { newUserSchema } = require('./middleware/validatorSchemas');
@@ -17,15 +16,14 @@ indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form'));
 
 indexRouter.post('/sign-up', 
     newUserSchema,
-    (req, res) => {
-    console.log(validationResult(req))
+    (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()){
         return res.status(400).render('sign-up-form', {
             errors: errors.array(),
         });
     }
-        createNewUser;
+        createNewUser(req, res, next);
         res.redirect('/');
     }
 );
