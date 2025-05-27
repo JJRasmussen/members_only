@@ -13,7 +13,12 @@
         <input id="username" name="username" placeholder="username" type="text" />
         <label for="password">Password</label>
         <input type="text" id="password" name="password"/>
+        <label for="passwordConfirmation">Confirm Password</label>
+        <input type="text" id="passwordConfirmation" name="passwordConfirmation"/>
         <button type="submit">Sign Up</button>
     </form>
+    <% if (locals.errors){for (let i = 0; i < errors.length; i++){ %>
+        <p><%= errors[i].msg %></p>
+    <% }} %>
 </body>
 </html>
