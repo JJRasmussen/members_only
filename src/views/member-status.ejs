@@ -7,7 +7,7 @@
     <title>Become Member</title>
 </head>
 <body>
-    <a href="/">HOME</a>
+    <%- include('utils/header') %>
     <% if(user.is_member) { %>
         <p>you're already a member</p>
         <form action="/member-status/remove" method="POST">
@@ -22,6 +22,6 @@
             <button type="submit">Become a member</button>
         </form>
     <% } %>
-    
+    <%- include('utils/footer') %>
 </body>
 </html>

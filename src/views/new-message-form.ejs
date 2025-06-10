@@ -7,7 +7,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <a href="/">HOME</a>
+    <%- include('utils/header') %>
     <h1>Post a new Message</h1>
     <form action="/new-message" method="POST">
         <label for="Title">*Title</label>
@@ -26,5 +26,6 @@
             Post
         </button>
     </form>
+    <%- include('utils/footer') %>
 </body>
 </html>

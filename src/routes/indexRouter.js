@@ -15,7 +15,7 @@ indexRouter.get('/', async (req, res) => {
     res.render('index', { user: req.user, messages: messages })
 });
 
-indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form'));
+indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form', { user: req.user }));
 indexRouter.post('/sign-up', 
     newUserSchema,
     (req, res, next) => {

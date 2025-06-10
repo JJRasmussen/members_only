@@ -7,36 +7,47 @@
     <title>Home</title>
 </head>
 <body>
-    <!-- If a user is logged in show greeting and logout-->
+    <%- include('utils/header') %>
+    <!-- If a user is logged in-->
     <% if (user) {%>
         <h1>WELCOME BACK <%= user.username %></h1>
         <% if (!user.is_member){ %>
             <h2>To create a post membership is needed:</h2>
             <a href="/member-status">Become a member</a>
         <% } %>
-        <a href="/log-out">LOG OUT</a>
-    <% } else { %>
-    <!-- Otherwise show login screen and signup link -->
-    <h1>Please log in to view the message board</h1>
-    <form action="/log-in" method="POST">
-        <label for="username">Username</label>
-        <input type="text" name="username" placeholder="username" id="username">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">Log In</button>
-    </form>
-    <h2>If you are new to the site, please sign up here</h2>
-    <a href="/sign-up">Sign Up</a>
-    <% } %>
-    <!-- Everyone sees message containers -->
-    <ul class="messageContainer">
-        <% if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
+        <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
             <div class="message">
                 <ul class="messageTitle"><%= messages[i].title %></ul>
                 <p class="textContent"><%= messages[i].text_content %></p>
-                
             </div>
-        <% }} %> 
-    </ul>
+        <% }} %>
+    
+    <% } else { %>
+    <!--If a user is logged out -->
+        <h1>Please log in to view the message board</h1>
+        <form action="/log-in" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" placeholder="username" id="username">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <button type="submit">Log In</button>
+        </form>
+        <h2>If you are new to the site, please sign up here to join the discussion</h2>
+        <a href="/sign-up">Sign Up</a>
+        <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
+            <!-- blurry teaser posts-->
+            <div aria-hidden="true">
+                <div class="message blurry">
+                    <ul class="messageTitle">Adipisci culpa necessitatibus</ul>
+                    <p class="textContent">Cupiditate nisi in, harum sed architecto quod repudiandae dignissimos, corrupti cum. Fugit quia dolores ducimus laudantium aliquid eligendi nemo enim?</p>
+                </div>
+                <div class="message blurry">
+                    <ul class="messageTitle">Autem a quo iste?</ul>
+                    <p class="textContent">Quae eaque odit blanditiis! Laboriosam quia saepe dolore ipsam molestias illo, numquam delectus dolor beatae rerum consectetur natus mollitia ullam hic animi repellat consequuntur eveniet impedit amet, tenetur enim? Aperiam.</p>
+                </div> 
+            </div>
+        <% }} %>
+    <% } %>
+    <%- include('utils/footer') %>
 </body>
 </html>

@@ -1,0 +1,16 @@
+<header>
+    <a href="/">HOME</a>
+    <h1>MEMBERS ONLY MESSAGEBOARD</h1>
+    <% if(user){ %>
+        <div>
+            <a href="/log-out">Log out</a>
+            <a href="/profile">Profile</a>
+        </div>
+    <% } else { %>
+        <div>
+            <a href="log-in">Log in</a>
+            <a href="/sign-up">Sign Up</a>
+        </div>
+        
+    <% } %>
+</header>
