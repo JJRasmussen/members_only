@@ -4,16 +4,18 @@ const { createNewUser, giveMemberStatus, removeMemberStatus } = require('../cont
 const { passport } = require('../passport/passport');
 const { isAuth, isMember, isAdmin } = require('./middleware/authrization');
 const { newUserSchema } = require('./middleware/validatorSchemas');
+const { getAllMessages, createNewMessage } = require('../controllers/messageController');
 const indexRouter = Router();
 
 //public routes
-
-indexRouter.get('/', (req, res) => {
-    res.render('index', { user: req.user })
+indexRouter.get('/', async (req, res) => {
+    messages = await getAllMessages()
+    console.log("indexRouter says: ")
+    console.log(messages)
+    res.render('index', { user: req.user, messages: messages })
 });
 
 indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form'));
-
 indexRouter.post('/sign-up', 
     newUserSchema,
     (req, res, next) => {
@@ -27,12 +29,10 @@ indexRouter.post('/sign-up',
         res.redirect('/');
     }
 );
-
 indexRouter.post('/log-in', passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/'
     }));
-
 indexRouter.get('/log-out', (req, res, next) => {
     req.logout((err) => {
         if (err) {
@@ -59,6 +59,10 @@ indexRouter.post('/member-status/remove', isAuth, (req, res, next) => {
 indexRouter.get('/member-route', isMember, (req, res, next) => {
     res.send('You made it to the member route');
 });
+indexRouter.get('/new-message', isMember, (req, res, next) => {
+    res.render('new-message-form')
+})
+indexRouter.post('/new-message', isMember, createNewMessage)
 
 //isAdmin routes
 indexRouter.get('/admin-route', isAdmin, (req, res, next) =>{

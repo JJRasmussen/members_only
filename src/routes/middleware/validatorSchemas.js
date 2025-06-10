@@ -1,5 +1,5 @@
 const { body } = require('express-validator');
-const { getUserFromUsername } = require('../../db/queries');
+const { getUserFromUsername } = require('../../db/queries/userQueries');
 
 const newUserSchema = [
     body('username')

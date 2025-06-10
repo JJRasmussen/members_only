@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Sign Up</title>
+</head>
+<body>
+    <a href="/">HOME</a>
+    <h1>Post a new Message</h1>
+    <form action="/new-message" method="POST">
+        <label for="Title">*Title</label>
+        <input id="messageTitle" name="messageTitle"
+            type="text"
+            maxlength="50"
+            required
+        />
+        <label for="messageContent">*Message</label>
+        <textarea id="messageContent" name="messageContent"
+            type="password"
+            maxLength="255"
+            required>
+        </textarea>
+        <button type="submit">
+            Post
+        </button>
+    </form>
+</body>
+</html>
