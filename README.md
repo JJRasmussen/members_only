@@ -10,6 +10,10 @@ To view the author of other users messages the user needs to become a member.
 - EJS as the view engine
 - PostgreSQL as the database
 
+## Site map overview
+
+[SITEMAP_members_only.pdf](https://github.com/user-attachments/files/20674027/SITEMAP_members_only.pdf)
+
 ## Database design:
 For the postgreSQL database I will need three tables.
 1. The users, with their information and hashed password.
