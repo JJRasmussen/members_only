@@ -12,7 +12,7 @@ To view the author of other users messages the user needs to become a member.
 
 ## Site map overview
 
-[SITEMAP_members_only.pdf](https://github.com/user-attachments/files/20674027/SITEMAP_members_only.pdf)
+![image](https://github.com/user-attachments/assets/79f30468-612b-400b-9fd3-f26f682018c4)
 
 ## Database design:
 For the postgreSQL database I will need three tables.
