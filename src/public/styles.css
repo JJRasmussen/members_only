@@ -1,7 +1,16 @@
+:root{
+        --primary-color: rgb(51, 45, 86);
+    --secondary-color: rgb(78, 102, 136);
+    --tertiary-color: rgb(113, 192, 187);
+    --quarternary-color: rgb(227, 238, 178);
+    --text-color: var(--quarternary-color);
+}
+
 *{
-    background-color: teal;
     margin: 0px;
     padding: 0px;
+    background: inherit;
+    color: var(--text-color);
 }
 
 header{
@@ -13,13 +22,17 @@ header{
     padding: 36px;
     margin-bottom: 48px;
     box-sizing: border-box;
+    background-color: var(--primary-color);
 }
+
+
 body{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 100vh;
+    background-color: var(--secondary-color);
 }
 
 .blurry{
@@ -34,4 +47,5 @@ footer{
     min-height: 48px;
     width: 100vw;
     margin-top: 48px;
+    background-color: var(--primary-color);
 }

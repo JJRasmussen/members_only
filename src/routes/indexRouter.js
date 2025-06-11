@@ -10,9 +10,8 @@ const indexRouter = Router();
 //public routes
 indexRouter.get('/', async (req, res) => {
     messages = await getAllMessages()
-    console.log("indexRouter says: ")
-    console.log(messages)
-    res.render('index', { user: req.user, messages: messages })
+    let userCreated = (req.query.userCreation === 'true');
+    res.render('index', { user: req.user, messages: messages, userCreated: userCreated })
 });
 
 indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form', { user: req.user }));
@@ -23,12 +22,15 @@ indexRouter.post('/sign-up',
     if (!errors.isEmpty()){
         return res.status(400).render('sign-up-form', {
             errors: errors.array(),
+            user: req.user
         });
     }
+        console.log("creating user")
         createNewUser(req, res, next);
-        res.redirect('/');
+        res.redirect('/?userCreation=true');
     }
 );
+
 indexRouter.post('/log-in', passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/'

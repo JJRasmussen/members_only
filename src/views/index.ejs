@@ -25,6 +25,9 @@
     <% } else { %>
     <!--If a user is logged out -->
         <h1>Please log in to view the message board</h1>
+        <% if(userCreated) { %>
+            <h2>User created successfully</h2>
+        <% } %>
         <form action="/log-in" method="POST">
             <label for="username">Username</label>
             <input type="text" name="username" placeholder="username" id="username">
