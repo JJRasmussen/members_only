@@ -11,7 +11,11 @@ const indexRouter = Router();
 indexRouter.get('/', async (req, res) => {
     messages = await getAllMessages()
     let userCreated = (req.query.userCreation === 'true');
-    res.render('index', { user: req.user, messages: messages, userCreated: userCreated })
+    let invalidLogin = (req.query.invalidLogin === 'true');
+    console.log("req.query.invalidLogin: " + req.query.invalidLogin)
+    console.log(typeof req.query.invalidLogin)
+    console.log("invalidLogin == true: " + (invalidLogin == true))
+    res.render('index', { user: req.user, messages: messages, userCreated: userCreated, invalidLogin: invalidLogin })
 });
 
 indexRouter.get('/sign-up', (req, res) => res.render('sign-up-form', { user: req.user }));
@@ -33,7 +37,7 @@ indexRouter.post('/sign-up',
 
 indexRouter.post('/log-in', passport.authenticate('local', {
         successRedirect: '/',
-        failureRedirect: '/'
+        failureRedirect: '/?invalidLogin=true'
     }));
 indexRouter.get('/log-out', (req, res, next) => {
     req.logout((err) => {

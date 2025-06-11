@@ -23,20 +23,23 @@
         <% }} %>
     
     <% } else { %>
-    <!--If a user is logged out -->
+    <!--If no user is logged in -->
         <h1>Please log in to view the message board</h1>
         <% if(userCreated) { %>
             <h2>User created successfully</h2>
         <% } %>
-        <form action="/log-in" method="POST">
-            <label for="username">Username</label>
-            <input type="text" name="username" placeholder="username" id="username">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <button type="submit">Log In</button>
-        </form>
-        <h2>If you are new to the site, please sign up here to join the discussion</h2>
-        <a href="/sign-up">Sign Up</a>
+            <form action="/log-in" method="POST">
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="username" id="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <button type="submit">Log In</button>
+            </form>
+        <% if (invalidLogin == true){%>
+            <p> Invalid username or password </p>
+        <% } %>
+            <h2>If you are new to the site, please sign up here to join the discussion</h2>
+            <a href="/sign-up">Sign Up</a>
         <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
             <!-- blurry teaser posts-->
             <div aria-hidden="true">
