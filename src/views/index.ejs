@@ -10,10 +10,10 @@
     <%- include('utils/header') %>
     <!-- If a user is logged in-->
     <% if (user) {%>
-        <h1>WELCOME BACK <%= user.username %></h1>
+        <h1>WELCOME <%= user.username %></h1>
         <a href="/member-status">Edit membership status</a>
         <% if (!user.is_member){ %>
-            <h2>To create a post membership is needed:</h2>
+            <h2>To join the discussion a membership is required.</h2>
         <% } else { %>
             <form action="/log-in" method="POST">
                 <label for="title">Title</label>
