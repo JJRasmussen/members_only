@@ -11,9 +11,17 @@
     <!-- If a user is logged in-->
     <% if (user) {%>
         <h1>WELCOME BACK <%= user.username %></h1>
+        <a href="/member-status">Edit membership status</a>
         <% if (!user.is_member){ %>
             <h2>To create a post membership is needed:</h2>
-            <a href="/member-status">Become a member</a>
+        <% } else { %>
+            <form action="/log-in" method="POST">
+                <label for="title">Title</label>
+                <input type="text" name="title" placeholder="username" id="title">
+                <label for="text_content">Content</label>
+                <textarea name="text_content" id="text_content"></textarea>
+                <button type="submit">Log In</button>
+            </form>
         <% } %>
         <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
             <div class="message">
@@ -21,7 +29,6 @@
                 <p class="textContent"><%= messages[i].text_content %></p>
             </div>
         <% }} %>
-    
     <% } else { %>
     <!--If no user is logged in -->
         <h1>Please log in to view the message board</h1>
