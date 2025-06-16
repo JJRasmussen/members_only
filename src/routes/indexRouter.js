@@ -76,9 +76,6 @@ indexRouter.post('/member-status/remove', isAuth, (req, res, next) => {
 indexRouter.get('/member-route', isMember, (req, res, next) => {
     res.send('You made it to the member route');
 });
-indexRouter.get('/new-message', isMember, (req, res, next) => {
-    res.render('new-message-form');
-});
 indexRouter.post('/new-message', isMember, createNewMessage);
 
 //isAdmin routes
