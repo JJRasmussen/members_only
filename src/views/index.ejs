@@ -57,21 +57,20 @@
         <% if (invalidLogin == true){%>
             <p> Invalid username or password </p>
         <% } %>
-            <h2>If you are new to the site, please sign up here to join the discussion</h2>
-            <a href="/sign-up">Sign Up</a>
-        <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
+            <h2>If you are new to the site, please sign up <a href="/sign-up">here</a> to join the discussion</h2>
+        <%if(messages != undefined) { %>
             <!-- blurry teaser posts-->
             <div aria-hidden="true">
                 <div class="message blurry">
-                    <ul class="messageTitle">Adipisci culpa necessitatibus</ul>
-                    <p class="textContent">Cupiditate nisi in, harum sed architecto quod repudiandae dignissimos, corrupti cum. Fugit quia dolores ducimus laudantium aliquid eligendi nemo enim?</p>
+                    <ul class="messageTitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</ul>
+                    <p class="textContent">Modi explicabo magnam quos consequuntur voluptas voluptate fugit aperiam eaque laboriosam odio enim saepe ab, repudiandae ducimus molestias culpa ratione fuga repellat maiores laudantium minima quaerat aliquam.</p>
                 </div>
                 <div class="message blurry">
-                    <ul class="messageTitle">Autem a quo iste?</ul>
-                    <p class="textContent">Quae eaque odit blanditiis! Laboriosam quia saepe dolore ipsam molestias illo, numquam delectus dolor beatae rerum consectetur natus mollitia ullam hic animi repellat consequuntur eveniet impedit amet, tenetur enim? Aperiam.</p>
+                    <ul class="messageTitle">Aspernatur dolorum earum totam, alias quo magni</ul>
+                    <p class="textContent">Aliquam numquam dolor quidem doloribus distinctio tenetur dignissimos facere ratione ad nulla, voluptates animi? Blanditiis voluptatibus iusto beatae voluptatum asperiores natus alias illum animi doloribus incidunt ullam sunt, necessitatibus fuga mollitia obcaecati!</p>
                 </div> 
             </div>
-        <% }} %>
+        <% } %>
     <% } %>
     <%- include('utils/footer') %>
 </body>
