@@ -73,13 +73,10 @@ indexRouter.post('/member-status/remove', isAuth, (req, res, next) => {
 });
 
 //isMember routes
-indexRouter.get('/member-route', isMember, (req, res, next) => {
-    res.send('You made it to the member route');
-});
 indexRouter.post('/new-message', isMember, createNewMessage);
 
 //isAdmin routes
-indexRouter.get('/admin-route', isAdmin, (req, res, next) =>{
+indexRouter.get('/admin', isAdmin, (req, res, next) =>{
     res.send('You made it to the admin route');
 });
 
