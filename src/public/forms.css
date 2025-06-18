@@ -1,0 +1,153 @@
+:root{
+    --left-border-width: 10%;
+    --right-border-width: 45%;
+
+    --input-height: 32px;
+    --input-padding: 18px;
+    --text-area-height:88px;
+}
+form{
+    display: grid;
+    height: 400px;
+    width: 520px;
+    gap: 8px;
+    padding: 28px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    z-index: 1;
+}
+legend{
+    justify-self: center;
+    align-self: center;
+    font-size: 32px;
+}
+.inputContainer {
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.inputContainer > label {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    font-size: 22px;
+}
+.inputContainer > input,
+.inputContainer > textarea{
+    position: relative;
+    box-sizing: border-box;
+    padding: var(--input-padding);
+    width: 100%;
+    height: var(--input-height);
+    font-size: 16px;
+
+    border: 0px;
+    border-bottom: 2px solid var(--tertiary-color);
+    border-radius: 0px;
+    z-index:2;
+    resize: none;
+    transition: border-color 500ms;
+}
+.inputContainer > textarea{
+    height: var(--text-area-height);
+}
+.inputContainer::before,
+.inputContainer::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 2px;
+    height: 2px;
+    background-color: var(--tertiary-color);
+    transition: 
+        height 500ms, 
+        width 500ms 500ms,
+        background-color 500ms;
+}
+.inputContainer::before{
+    left: -2px;
+}
+.inputContainer::after{
+    right: -2px;
+}
+/* remove standard */
+input:focus,
+input:not(:placeholder-shown),
+textarea:focus,
+textarea:not(:placeholder-shown){
+    outline: none;
+    box-shadow: none;
+}
+
+/*input field animation*/
+.inputContainer:has(input:focus)::before,
+.inputContainer:has(input:not(:placeholder-shown))::before{
+    height: calc(var(--input-height) + 8px);
+    width: 22px;
+    transform-origin: bottom;
+}
+.inputContainer:has(input:focus)::after,
+.inputContainer:has(input:not(:placeholder-shown))::after{
+    outline: none;
+    box-shadow: none;
+    height: calc(var(--input-height) + 8px);
+    width: 95%;
+    transform-origin: bottom, right;
+}
+/* invalid input animations */
+.inputContainer:focus-within:has(input:invalid) > input:invalid{
+    border-color: var(--invalid-input-color);
+}
+.inputContainer:focus-within:has(input:invalid)::after,
+.inputContainer:focus-within:has(input:invalid)::before{
+    background-color: var(--invalid-input-color);
+}
+
+/*textarea field animation*/
+.inputContainer:has(textarea:focus)::before,
+.inputContainer:has(textarea:not(:placeholder-shown))::before{
+    outline: none;
+    box-shadow: none;
+    height: calc(var(--text-area-height) + 2px);
+    width: 22px;
+    transform-origin: bottom, left;
+}
+.inputContainer:has(textarea:focus)::after,
+.inputContainer:has(textarea:not(:placeholder-shown))::after{
+    outline: none;
+    box-shadow: none;
+    height: calc(var(--text-area-height) + 2px);
+    width: 95%;
+    transform-origin: bottom, right;
+}
+
+/* label animation */
+label{
+    transition: all ease-out 500ms;
+    z-index: 2;
+    padding: 2px;
+}
+input:focus+label,
+input:not(:placeholder-shown)+label{
+    width: fit-content;
+    transform-origin: left;
+    transform:
+        scale(0.85)
+        translate(4px, -25px);
+    transition: all ease-out 500ms;
+}
+
+textarea:focus+label,
+textarea:not(:placeholder-shown)+label {
+    width: fit-content;
+    transform-origin: left;
+    transform:
+        scale(0.85)
+        translate(4px, calc(-0px - var(--text-area-height)));
+    transition: all ease-out 500ms;
+}
+
+/* invalid input animations */
+

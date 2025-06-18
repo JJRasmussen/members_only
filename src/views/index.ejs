@@ -10,28 +10,36 @@
     <%- include('utils/header') %>
     <!-- If a user is logged in-->
     <% if (user) {%>
-        <h1>WELCOME <%= user.username %></h1>
-        <a href="/member-status">Edit membership status</a>
+        <h1>Welcome <%= user.username %>!</h1>
+        
         <% if (!user.is_member){ %>
             <h2>To join the discussion a membership is required.</h2>
+            <a href="/member-status">Edit membership status</a>
         <% } else { %>
             <form action="/new-message" method="POST">
-                <label for="title">Title</label>
-                <input 
-                    type="text" 
-                    name="messageTitle"
-                    placeholder="username" 
-                    id="messageTitle"
-                    maxlength="50"
-                    required
-                    >
-                <label for="messageContent">Content</label>
-                <textarea 
-                    name="messageContent" 
-                    id="messageContent"
-                    maxlength="255"
-                    required
-                ></textarea>
+                <div>
+                    <div class="inputContainer">
+                        <input 
+                            type="text" 
+                            name="messageTitle"
+                            placeholder="" 
+                            id="messageTitle"
+                            maxlength="50"
+                            required
+                        >
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="inputContainer">
+                        <textarea 
+                            name="messageContent" 
+                            id="messageContent"
+                            maxlength="255"
+                            placeholder=""
+                            required
+                        ></textarea>
+                        <label for="messageContent">Content</label>
+                    </div>
+                </div>
                 <button type="submit">Post message</button>
             </form>
         <% } %>
@@ -47,11 +55,17 @@
         <% if(userCreated) { %>
             <h2>User created successfully</h2>
         <% } %>
-            <form action="/log-in" method="POST">
-                <label for="username">Username</label>
-                <input type="text" name="username" placeholder="username" id="username">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
+            <form action="/log-in" method="POST" id="loginForm">
+                <div>
+                    <div class="inputContainer">
+                        <input type="text" name="username" id="username" placeholder="">
+                        <label for="username">Username</label>
+                    </div> 
+                    <div class="inputContainer">
+                        <input type="password" name="password" id="password" placeholder="">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
                 <button type="submit">Log In</button>
             </form>
         <% if (invalidLogin == true){%>

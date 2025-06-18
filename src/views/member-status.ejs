@@ -39,8 +39,12 @@
         <p>Please try again or consider a hint</p>
     <% } %>
         <form action="/member-status/add" method="POST">
-            <label for="membershipPassword">Membership Password</label>
-            <input type="text" name="membershipPassword" id = membershipPassword required>
+            <div>
+                <div class="inputContainer">
+                    <input type="text" name="membershipPassword" id = membershipPassword required placeholder="">
+                    <label for="membershipPassword">Membership Password</label>
+                </div>
+            </div>
             <button type="submit">Become a member</button>
         </form>
     <% } %>

@@ -1,8 +1,11 @@
+@import '/forms.css';
+
 :root{
-        --primary-color: rgb(51, 45, 86);
+    --primary-color: rgb(51, 45, 86);
     --secondary-color: rgb(78, 102, 136);
     --tertiary-color: rgb(113, 192, 187);
     --quarternary-color: rgb(227, 238, 178);
+    --invalid-input-color: red;
     --text-color: var(--quarternary-color);
 }
 
@@ -34,6 +37,7 @@ body{
     height: 100vh;
     background-color: var(--secondary-color);
 }
+
 
 .blurry{
     filter: blur(2px)
