@@ -71,15 +71,15 @@
                         <label for="password">Password</label>
                     </div>
                 </div>
+                <% if (invalidLogin == true){%>
+                <p> Invalid username or password </p>
+                <% } %>
                 <button type="submit">Log In</button>
                 <div class="signupContainer">
                     <p>Don't have an account yet?</p>
                     <a class="secondaryButton" href="/sign-up">Sign Up</a>
                 </div>
             </form>
-        <% if (invalidLogin == true){%>
-            <p> Invalid username or password </p>
-        <% } %>
         <%if(messages != undefined) { %>
             <!-- blurry teaser posts-->
             <div aria-hidden="true" class="messageContainer">

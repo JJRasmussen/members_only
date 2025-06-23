@@ -39,14 +39,52 @@ header{
     background-color: var(--primary-color);
 }
 
-.center{
+.blurry{
+    filter: blur(2px)
+}
 
+.riddleContainer{
+    padding: 12px;
+    margin: 12px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+}
+.riddleHints{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: var(--primary-color);
+    padding: 12px;
+    margin: 12px;
+    border-radius: 8px;
+}
+
+.membershipHintContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.membershipHintContainer > button,
+.membershipHintContainer > p{
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 100%;
+}
+.membershipHintContainer > button{
+    font-size: 1.2em;
 }
 
 
-
-.blurry{
-    filter: blur(2px)
+#answer{
+    font-size: 1.8em;
+    line-height: 200%;
 }
 
 footer{

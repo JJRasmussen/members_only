@@ -15,8 +15,8 @@
         </form>
         
     <% } else { %>
-            <p>To become a member you must answer the riddle:</p>
-        <div>
+        <h2>To become a member you must answer the riddle:</h2>
+        <div class="riddleContainer">
             <p>I say it once and never twice.</p>
             <p>So when it's done, it's made to splice.</p>
             <br>
@@ -26,13 +26,15 @@
             <p>But when it's done, if something breaks.</p>
             <p>That's when the stakeholder awakes.</p>        
         </div>
-        <div>
-            <button id="hintButton">SHOW HINT</button>
-            <p style="display:none" id="hint">A coding principle with a three letter capitalized acronym</p> 
-        </div>
-        <div>
-            <button id="answerButton">SHOW ANSWER</button>
-            <p style="display:none" id="answer">DRY</p>
+        <div class="riddleHints">
+            <div class="membershipHintContainer">
+                <button id="hintButton">SHOW HINT</button>
+                <p style="display:none" id="hint">A coding principle with a three letter capitalized acronym</p> 
+            </div>
+            <div class="membershipHintContainer">
+                <button id="answerButton">SHOW ANSWER</button>
+                <p style="display:none" id="answer">DRY</p>
+            </div>
         </div>
         <form action="/member-status/add" method="POST">
             <div>
