@@ -7,11 +7,11 @@
     <title>Become Member</title>
 </head>
 <body>
-    <%- include('utils/header') %>
+    <%- include('sections/header') %>
     <% if(user.is_member) { %>
         <p>You are already a member</p>
         <form action="/member-status/remove" method="POST">
-            <button type="submit">Remove your membership</button>
+            <button type="submit">Remove membership</button>
         </form>
         
     <% } else { %>
@@ -48,7 +48,7 @@
             <button type="submit">Become a member</button>
         </form>
     <% } %>
-    <%- include('utils/footer') %>
+    <%- include('sections/footer') %>
     <script>
         const showText = (button, textblock) => {
             document.getElementById(button).addEventListener('click', function(){

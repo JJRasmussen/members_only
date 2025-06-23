@@ -7,7 +7,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-    <%- include('utils/header') %>
+    <%- include('sections/header') %>
     <form action="/sign-up" method="POST">
         <legend>CREATE AN ACCOUNT</legend>
         <div>
@@ -49,6 +49,6 @@
     <% if (locals.errors){for (let i = 0; i < errors.length; i++){ %>
         <p><%= errors[i].msg %></p>
     <% }} %>
-    <%- include('utils/footer') %>
+    <%- include('sections/footer') %>
 </body>
 </html>

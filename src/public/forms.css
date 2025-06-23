@@ -8,7 +8,7 @@
 }
 form{
     display: grid;
-    height: 400px;
+
     width: 520px;
     gap: 8px;
     padding: 28px;
@@ -21,6 +21,12 @@ legend{
     justify-self: center;
     align-self: center;
     font-size: 32px;
+}
+.signupContainer{
+    display: flex;
+    margin: 12px;
+    justify-self: center;
+    gap: 12px;
 }
 .inputContainer {
     position: relative;
@@ -149,5 +155,20 @@ textarea:not(:placeholder-shown)+label {
     transition: all ease-out 500ms;
 }
 
-/* invalid input animations */
 
+/* Button and link styling */
+form > button {
+    width: 240px;
+    height: 48px;
+    border-radius: 8px;
+    font-size: 1.4em;
+    justify-self: center;
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+}
+
+
+.secondaryButton{
+    border: 2px solid var(--primary-color);
+}

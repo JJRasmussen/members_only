@@ -7,16 +7,17 @@
     <title>Home</title>
 </head>
 <body>
-    <%- include('utils/header') %>
+    <%- include('sections/header') %>
     <!-- If a user is logged in-->
+    <div class="center">
     <% if (user) {%>
-        <h1>Welcome <%= user.username %>!</h1>
-        
+    <h1 class="greeting">Welcome <%= user.username %>!</h1>
         <% if (!user.is_member){ %>
-            <h2>To join the discussion a membership is required.</h2>
-            <a href="/member-status">Edit membership status</a>
+            <p class="greeting">Feel free to browse the message board. To post your own message a membership is required</p>
+            <a href="/member-status">Become a member</a>
         <% } else { %>
             <form action="/new-message" method="POST">
+                <legend>Post a new message</legend>
                 <div>
                     <div class="inputContainer">
                         <input 
@@ -40,22 +41,26 @@
                         <label for="messageContent">Content</label>
                     </div>
                 </div>
-                <button type="submit">Post message</button>
+                <button type="submit">Submit</button>
             </form>
         <% } %>
-        <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>
-            <div class="message">
-                <ul class="messageTitle"><%= messages[i].title %></ul>
+        <div class="messageContainer">
+        <%if(messages != undefined) {for (let i = messages.length -1; i >= 0; i--){ %>            
+            <div class="messageCard">
+                <p class="messageUser">User: <%= messages[i].username %></p>
+                <h3 class="messageTitle"><%= messages[i].title %></h3>
                 <p class="textContent"><%= messages[i].text_content %></p>
             </div>
         <% }} %>
-    <% } else { %>
-    <!--If no user is logged in -->
-        <h1>Please log in to view the message board</h1>
+        </div>
+        <% } else { %>
+        <!--If no user is logged in -->
         <% if(userCreated) { %>
             <h2>User created successfully</h2>
         <% } %>
+        <h1 class="greeting">Please log in to view the message board</h1>
             <form action="/log-in" method="POST" id="loginForm">
+                <Legend>Login Up</Legend>
                 <div>
                     <div class="inputContainer">
                         <input type="text" name="username" id="username" placeholder="">
@@ -67,25 +72,32 @@
                     </div>
                 </div>
                 <button type="submit">Log In</button>
+                <div class="signupContainer">
+                    <p>Don't have an account yet?</p>
+                    <a class="secondaryButton" href="/sign-up">Sign Up</a>
+                </div>
             </form>
         <% if (invalidLogin == true){%>
             <p> Invalid username or password </p>
         <% } %>
-            <h2>If you are new to the site, please sign up <a href="/sign-up">here</a> to join the discussion</h2>
         <%if(messages != undefined) { %>
             <!-- blurry teaser posts-->
-            <div aria-hidden="true">
-                <div class="message blurry">
+            <div aria-hidden="true" class="messageContainer">
+                <div class="messageCard blurry">
+                    <p class="messageUser">Modiexplicabo:</p>
                     <ul class="messageTitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</ul>
                     <p class="textContent">Modi explicabo magnam quos consequuntur voluptas voluptate fugit aperiam eaque laboriosam odio enim saepe ab, repudiandae ducimus molestias culpa ratione fuga repellat maiores laudantium minima quaerat aliquam.</p>
                 </div>
-                <div class="message blurry">
+                <div class="messageCard blurry">
+                    <p class="messageUser">Aliquamquam:</p>
                     <ul class="messageTitle">Aspernatur dolorum earum totam, alias quo magni</ul>
                     <p class="textContent">Aliquam numquam dolor quidem doloribus distinctio tenetur dignissimos facere ratione ad nulla, voluptates animi? Blanditiis voluptatibus iusto beatae voluptatum asperiores natus alias illum animi doloribus incidunt ullam sunt, necessitatibus fuga mollitia obcaecati!</p>
                 </div> 
             </div>
         <% } %>
     <% } %>
-    <%- include('utils/footer') %>
+    </div>
+
+    <%- include('sections/footer') %>
 </body>
 </html>

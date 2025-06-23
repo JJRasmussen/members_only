@@ -1,0 +1,47 @@
+.messageContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin: 32px;
+}
+
+.messageCard{
+    display: grid;
+    width: clamp(400px, 60vw, 500px);
+    gap: 12px;
+    background-color: var(--primary-color);
+    padding: 12px;
+    border-radius: 4px;
+    transition: transform 500ms;
+}
+.messageCard:hover{
+    transform:scale(1.05);
+}
+.messageCard > div {
+    padding:8px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 4px var(--tertiary-color);
+}
+.messageTitle,
+.textContent{
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    /* "word-break" improves compatibility with long word breaks */
+    word-break: break-word;
+    white-space: normal;
+}
+.messageTitle{
+    font-size: 20px;
+    max-width: 40vw;
+    font-size: 1.2em;
+    font-weight: 700;
+        
+}
+
+.messageContent{
+    padding:8px;
+    font-size: 1em;
+    line-height: 1.5;
+    max-width: 50vw;
+}

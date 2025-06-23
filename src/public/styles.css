@@ -1,4 +1,6 @@
 @import '/forms.css';
+@import '/messages.css';
+@import '/center.css';
 
 :root{
     --primary-color: rgb(51, 45, 86);
@@ -16,6 +18,15 @@
     color: var(--text-color);
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: var(--secondary-color);
+}
+
 header{
     display: flex;
     justify-content: space-between;
@@ -28,15 +39,10 @@ header{
     background-color: var(--primary-color);
 }
 
+.center{
 
-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100vh;
-    background-color: var(--secondary-color);
 }
+
 
 
 .blurry{
