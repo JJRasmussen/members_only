@@ -51,25 +51,26 @@ indexRouter.get('/log-out', (req, res, next) => {
 
 //isUser routes
 indexRouter.get('/member-status', isAuth, (req, res, next) => {
-    let answer = (req.query.answer === 'true');
     res.render('member-status', { 
         user: req.user,
-        answer: answer
+        message: null
     });
 });
 indexRouter.post('/member-status/add', isAuth, (req, res, next) => {
-    console.log("req.body.membershipPassword" + req.body.membershipPassword)
-    console.log("typeof: " + typeof req.body.membershipPassword)
     if(req.body.membershipPassword.toUpperCase() != 'DRY'){
-        res.redirect('/member-status/?answer=false');
+        res.render('member-status', {
+            user: req.user,
+            message: 'Incorrect password, please try again or consider a hint.'});
     } else {
         giveMemberStatus(req, res, next);
-        res.redirect('/member-status/?answer=true');   
+        res.redirect('/');   
     }
 });
 indexRouter.post('/member-status/remove', isAuth, (req, res, next) => {
     removeMemberStatus(req, res, next);
-    res.redirect('/member-status');
+    res.redirect('/member-status', {
+        user: req.user,
+        message: null});
 });
 
 //isMember routes

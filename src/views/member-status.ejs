@@ -34,10 +34,6 @@
             <button id="answerButton">SHOW ANSWER</button>
             <p style="display:none" id="answer">DRY</p>
         </div>
-    <% if(!answer) { %>
-        <p>Wrong answer</p>
-        <p>Please try again or consider a hint</p>
-    <% } %>
         <form action="/member-status/add" method="POST">
             <div>
                 <div class="inputContainer">
@@ -45,6 +41,11 @@
                     <label for="membershipPassword">Membership Password</label>
                 </div>
             </div>
+        <% if(message) { %>
+            <div class="wrongInput">
+                <p><%= message %></p>
+            </div>
+        <% } %>
             <button type="submit">Become a member</button>
         </form>
     <% } %>

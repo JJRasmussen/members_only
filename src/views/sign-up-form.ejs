@@ -42,13 +42,14 @@
                 <label for="passwordConfirmation">Confirm Password</label>
             </div>
         </div>
+    <% if (locals.errors){for (let i = 0; i < errors.length; i++){ %>
+        <p class="wrongInput"><%= errors[i].msg %></p>
+    <% }} %>
         <button type="submit">
             Sign Up
         </button>
     </form>
-    <% if (locals.errors){for (let i = 0; i < errors.length; i++){ %>
-        <p><%= errors[i].msg %></p>
-    <% }} %>
+
     <%- include('sections/footer') %>
 </body>
 </html>

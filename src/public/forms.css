@@ -168,7 +168,9 @@ form > button {
     cursor: pointer;
 }
 
-
-.secondaryButton{
-    border: 2px solid var(--primary-color);
+.wrongInput{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
 }
