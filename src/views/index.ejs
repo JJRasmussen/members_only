@@ -60,7 +60,7 @@
         <% } %>
         <h1 class="greeting">Please log in to view the message board</h1>
             <form action="/log-in" method="POST" id="loginForm">
-                <Legend>Login Up</Legend>
+                <Legend>Login</Legend>
                 <div>
                     <div class="inputContainer">
                         <input type="text" name="username" id="username" placeholder="">
@@ -74,10 +74,10 @@
                 <% if (invalidLogin == true){%>
                 <p> Invalid username or password </p>
                 <% } %>
-                <button type="submit">Log In</button>
+                <button type="submit">Log in</button>
                 <div class="signupContainer">
                     <p>Don't have an account yet?</p>
-                    <a class="secondaryButton" href="/sign-up">Sign Up</a>
+                    <a class="secondaryButton" href="/sign-up">Sign up</a>
                 </div>
             </form>
         <%if(messages != undefined) { %>

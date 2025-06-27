@@ -41,12 +41,13 @@
                 />
                 <label for="passwordConfirmation">Confirm Password</label>
             </div>
+            <p>Password must be at least six characters</p>
         </div>
     <% if (locals.errors){for (let i = 0; i < errors.length; i++){ %>
         <p class="wrongInput"><%= errors[i].msg %></p>
     <% }} %>
         <button type="submit">
-            Sign Up
+            Sign up
         </button>
     </form>
 
