@@ -20,9 +20,6 @@ For the postgreSQL database I will need three tables.
 2. The messages, their creation date and the associated user.
 3. The session table used by pg-connect-simple to keep track of sessions.
 
-![image](https://github.com/user-attachments/assets/876f973b-94a1-4944-ac10-747e7ffaac32)
-
-
 
 _A link to the project description can be found here:_
 https://www.theodinproject.com/lessons/node-path-nodejs-members-only
