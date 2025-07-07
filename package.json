@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node src/app.js"
+  },
   "dependencies": {
     "date-fns": "^4.1.0"
   },
