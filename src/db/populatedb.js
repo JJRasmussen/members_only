@@ -42,7 +42,7 @@ INSERT INTO users (username, hashed_password, user_creation_time, is_member, is_
 async function main() {
     console.log('seeding...');
     const client = new Client({
-        connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:${process.env.DATABASE_PORT}/${process.env.DATABASE_NAME}`, //sslmode=require is needed when externally acessing Render db
+        connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}/${process.env.DATABASE_NAME}`, //sslmode=require is needed when externally acessing Render db
     });
     await client.connect();
     await client.query(SQL);
